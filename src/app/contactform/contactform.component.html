@@ -1,0 +1,82 @@
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-text-container">
+      <h5>{{ translate.contactMe[translate.languageIndex].contactme }}</h5>
+      <h2>{{ translate.contactMe[translate.languageIndex].headline }}</h2>
+      <h4>{{ translate.contactMe[translate.languageIndex].problem }}</h4>
+      <p>{{ translate.contactMe[translate.languageIndex].text }}</p>
+      <br>
+      <div class="lets-talk">
+        <p>{{ translate.contactMe[translate.languageIndex].need }}&nbsp;</p>
+        <br>
+        <br>
+        <p (click)="mailservice.sendEmail(mailservice.myEmail, mailservice.mailSubject, '')" class="link">{{
+          translate.contactMe[translate.languageIndex].talk }}</p>
+      </div>
+    </div>
+
+    <form id="input-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+      <div class="form-container">
+        <label for="name">{{ translate.contactMe[translate.languageIndex].input1 }}</label>
+        <input id="name" name="name" #name="ngModel" type="text" [(ngModel)]="contactData.name"
+          [placeholder]="translate.contactMe[translate.languageIndex].placeholder1" required minlength="3"/>
+        @if(!name.valid && name.touched) {
+        <p class="warning">
+          {{ translate.contactMe[translate.languageIndex].error1 }}
+        </p>
+        }
+      </div>
+
+      <div class="form-container">
+        <label for="email">{{ translate.contactMe[translate.languageIndex].input2 }}</label>
+        <input id="email" name="email" #email="ngModel" type="email" [(ngModel)]="contactData.email"
+          [placeholder]="translate.contactMe[translate.languageIndex].placeholder2" required
+          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"/>
+        @if(!email.valid && email.touched) {
+        <p class="warning">
+          {{ translate.contactMe[translate.languageIndex].error2 }}
+        </p>
+        }
+      </div>
+
+      <div class="form-container">
+        <label for="message">{{ translate.contactMe[translate.languageIndex].input3 }}</label>
+        <textarea id="message" name="message" type="text" #message="ngModel" [(ngModel)]="contactData.message"
+          [placeholder]="translate.contactMe[translate.languageIndex].placeholder3" required minlength="3"></textarea>
+              @if(!message.valid && message.touched) {
+                <p class="warning">
+                {{ translate.contactMe[translate.languageIndex].error3 }}
+              </p>
+              }
+            
+      </div>
+
+      <div class="privacy-policy">
+        <div class="privacy-policy-acception">
+          <div (click)="setCheckbox()" (mouseover)="checkboxHovered = true" (mouseleave)="checkboxHovered = false"
+            [ngClass]="{
+                    'cb-unchecked': !checkboxChecked && !checkboxHovered,
+                    'cb-checked': checkboxChecked && !checkboxHovered,
+                    'cb-unchecked-hover': !checkboxChecked && checkboxHovered,
+                    'cb-checked-hover': checkboxChecked && checkboxHovered
+                  }"></div>
+          <p>
+            {{ translate.contactMe[translate.languageIndex].policy1 }} &nbsp;
+            <a href="privacypolicy">{{ translate.contactMe[translate.languageIndex].policy2 }}&nbsp;</a>
+            {{ translate.contactMe[translate.languageIndex].policy3 }}
+          </p>
+        </div>
+        <p [ngStyle]="{ opacity: privacyPolicyErrorMsg ? 1 : 0 }" class="warning">
+          {{ translate.contactMe[translate.languageIndex].policyError }}
+        </p>
+      </div>
+
+      <button type="submit" [ngClass]="{ 'btn-style': checkboxChecked, 'this-btn': !checkboxChecked }"
+        class="btn-position">
+        <span class="marquee-effect btn-padding">
+          {{ translate.contactMe[translate.languageIndex].helloBtn }}
+        </span>
+      </button>
+    </form>
+  </div>
+</section>

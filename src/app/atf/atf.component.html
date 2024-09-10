@@ -1,0 +1,50 @@
+<div class="atf-container">
+    <div class="header">
+        <app-header></app-header>
+    </div>
+    <div class="title">
+        <h3>{{ translate.atf[translate.languageIndex].job }}</h3>
+        <h1>Björn Augustin</h1>
+        <div class="btn-container">
+            <button (click)="navigation.goToRef('#projects')" class="btn-style btn-padding">
+                <span class="marquee-effect">{{ translate.atf[translate.languageIndex].checkBTN }}</span>
+            </button>
+            <button (click)="mailservice.sendEmail(mailservice.myEmail, mailservice.mailSubject, '')"
+                class="btn-style btn-padding">
+                <span class="marquee-effect">{{ translate.atf[translate.languageIndex].contactBTN }}</span>
+            </button>
+        </div>
+    </div>
+    <div class="bottom-section">
+        <div class="arrow">
+            <div (click)="navigation.goToRef('#about')" class="bouncing-arrow">
+                <svg id="scrollArrow" width="14" height="18" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="7" y1="0" x2="7" y2="12" stroke="white" stroke-width="1" />
+                    <line x1="7" y1="12" x2="3" y2="8" stroke="white" stroke-width="1" />
+                    <line x1="7" y1="12" x2="11" y2="8" stroke="white" stroke-width="1" />
+                </svg>
+            </div>
+            <div class="line240px">
+                <svg width="2" height="240" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="1" y1="0" x2="1" y2="240" stroke="#3DCFB6" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
+        <div class="contact">
+            <div class="email">
+                <p (click)="mailservice.sendEmail(mailservice.myEmail, mailservice.mailSubject, '')"></p>
+            </div>
+            <div class="socialmedia">
+                <div (click)="navigation.goToUrl('https://www.github.com/BjoernAugustin/')" class="git-logo"></div>
+                <div (click)="navigation.goToUrl('https://www.linkedin.com/in/bj%C3%B6rn-augustin-leuchtturm1917?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app')"
+                    class="linkedIn-logo"></div>
+            </div>
+            <svg width="2" height="186" xmlns="http://www.w3.org/2000/svg">
+                <line x1="1" y1="0" x2="1" y2="186" stroke="#FFFFFF" stroke-width="1" />
+            </svg>
+        </div>
+    </div>
+    <div class="marquee">
+        <app-marquee></app-marquee>
+    </div>
+</div>

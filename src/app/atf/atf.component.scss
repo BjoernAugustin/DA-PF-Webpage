@@ -1,0 +1,225 @@
+@import './../../styles.scss';
+
+.atf-container {
+    @include dFlex();
+    flex-direction: column;
+    @include size(100vw, 100vh);
+    max-width: 100%;
+    background: linear-gradient(210deg, $gradientGreen, $gradientGreen 20%, $background 60%);
+}
+
+.header {
+    @include size(100%, auto);
+    position: absolute;
+    top: 0;
+}
+
+.title {
+    @include dFlex();
+    flex-direction: column;
+
+    h1{
+        font-family: Karla;
+        text-align: center;
+        color: $atfWhite
+    }
+
+    h3 {
+        font-family: Fira Code;
+        font-weight: 400;
+        color: $atfWhite;
+    }
+
+    .btn-container {
+        margin-top: 48px;
+        @include dFlex();
+        gap: 5vw;
+        z-index: 1;
+    }
+}
+
+.bottom-section {
+    @include dFlex(space-between, flex-end);
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0px;
+    width: 100%;
+    padding: 0 96px;
+
+    .arrow {
+        @include size(auto, 312px);
+        @include dFlex(space-between, center);
+        flex-direction: column;
+
+        .bouncing-arrow {
+            @include size(30px, 48px);
+            border: 1px solid $primary;
+            border-radius: 100px;
+            @include dFlex();
+            cursor: pointer;
+
+            svg {
+                animation: up-down-loop 1.5s infinite;
+            }
+        }
+    }
+
+    .contact {
+        @include dFlex();
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .socialmedia {
+        @include size(auto, 76px);
+        @include dFlex(space-between, center);
+        flex-direction: column;
+
+        .git-logo {
+            position: relative;
+            @include size(32px, 32px);
+            background-image: url('./../../assets/icons/github_default.svg');
+            cursor: pointer;
+
+            &:hover {
+                background-image: url('./../../assets/icons/github_hover.svg');
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: - 15px;
+                    width: 8px;
+                    height: 8px;
+                    background-color: $primary;
+                    border-radius: 100%;
+                }
+            }
+        }
+
+        .linkedIn-logo {
+            position: relative;
+            @include size(32px, 32px);
+            background-image: url('./../../assets/icons/linkedin_default.svg');
+            cursor: pointer;
+
+            &:hover {
+                background-image: url('./../../assets/icons/linkedin_hover.svg');
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: - 15px;
+                    width: 8px;
+                    height: 8px;
+                    background-color: $primary;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}
+
+.marquee {
+    position: absolute;
+    bottom: 62px;
+    rotate: -3deg;
+    overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .title {
+
+        h1{
+            font-size: 3.875rem;
+        }
+    
+        h3 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .bottom-section {
+        padding: 0 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact {
+
+        .email {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+            position: relative;
+            font-family: Karla;
+
+            p:after {
+                content: "b.augustin@hotmail.com";
+            }
+
+            p:hover {
+                color: $primary;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact {
+
+        .email {
+            margin-bottom: -16px;
+
+            p {
+                position: relative;
+                @include size(32px, 32px);
+                background-image: url('./../../assets/icons/mail_dot_default.svg');
+                cursor: pointer;
+
+                &:hover {
+                    background-image: url('./../../assets/icons/mail_dot_hover.svg');
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: - 15px;
+                        width: 8px;
+                        height: 8px;
+                        background-color: $primary;
+                        border-radius: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .title {
+        
+        .btn-container {
+            flex-direction: column;
+        }
+    }
+}
+
+
+@keyframes up-down-loop {
+    0% {
+        transform: translateY(-7px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(-7px);
+    }
+}

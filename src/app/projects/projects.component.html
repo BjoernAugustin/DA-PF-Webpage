@@ -1,0 +1,43 @@
+<section id="projects" class="projects-section">
+    <div class="container">
+        <div class="project-text-container">
+            <h5>{{ translate.portfolio[translate.languageIndex].Portfolio }}</h5>
+            <h2>{{ translate.portfolio[translate.languageIndex].Projects }}</h2>
+
+            <p>{{ translate.portfolio[translate.languageIndex].text }}</p>
+        </div>
+
+        <div class="project-list">
+            @for(project of data.projects; track project.number; let index = $index; let firstproject =
+            $first){
+
+            <div>
+
+                <div (mouseover)="project.hover = true; data.projectIndex = index" (mouseleave)="project.hover = false"
+                    (click)="openModal()" class="single-project"
+                    [ngStyle]="{'border-width': firstproject == true ? '1px 0 1px 0' : '0 0 1px 0'}">
+
+                    <h5>{{ project.name }}</h5>
+
+                    <div class="technologies">
+                        @for(item of data.projects[index].technologies; track item.tech; let last = $last)
+                        {
+                        <p>{{ item.tech }}</p>
+                        <p [ngStyle]="{'display': last == true ? 'none' : 'flex'}" class="primary-color">|</p>
+                        }
+                    </div>
+
+                </div>
+
+                @if(!responsive.width1200) {
+                <img [ngStyle]="{'display': project.hover == true && responsive.width1200 == false ? 'flex' : 'none', 'top.px': index * 75}"
+                    class="project-hover-img" src="./../../assets/images/{{ project.img_preview }}" alt="">
+                }
+            </div>
+            }
+
+        </div>
+    </div>
+    <ng-template cdkPortal>
+        <app-detail-overlay></app-detail-overlay>
+    </ng-template>

@@ -1,0 +1,218 @@
+@import './../../styles.scss';
+
+.contact-section {
+
+    box-sizing: border-box;
+    padding: 72px 112px 72px 112px;
+
+    .container {
+        @include dFlex(space-between, flex-start);
+
+        .contact-text-container {
+            width: 40vw;
+
+            h5 {
+                margin-bottom: 20px;
+                font-family: Fira Code;
+                color: $primary;
+            }
+
+            h2 {
+                margin-bottom: 40px;
+                font-family: Fira Code;
+                color: $primary;
+            }
+
+            h4 {
+                margin-bottom: 16px;
+                font-family: Fira Code;
+                color: $primary;
+            }
+
+            p {
+                font-family: Karla;
+            }
+
+            .lets-talk {
+                @include dFlex(flex-start, center);
+
+                .link {
+                    font-family: Karla;
+                    font-weight: 700;
+                    color: $primary;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $fontWhite;
+                    }
+                }
+            }
+        }
+
+        #input-form {
+            width: 40vw;
+            height: auto;
+            border: 1px solid $primary;
+            border-width: 1px 0 0 0;
+            position: relative;
+
+            .form-container {
+                border: 1px solid $primary;
+                border-width: 0 0 1px 0;
+                padding: 32px;
+                box-sizing: border-box;
+
+                label {
+                    font-family: Fira Code;
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: $primary;
+                    display: block;
+                    margin-bottom: 16px;
+                }
+
+                input, textarea {
+                    font-family: Karla;
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: rgba(255, 255, 255, 0.8);
+                    border: none;
+                    background: none;
+                    outline: none;
+                    display: block;
+                    width: 100%;
+                    resize: vertical;
+                    position: relative;
+
+                    &::selection {
+                        background-color: $primary;
+                    }
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.8);
+                    }
+
+                    &:-webkit-autofill,
+                    :focus {
+                        background: none;
+                        border: none;
+                        -webkit-text-fill-color: rgba(255, 255, 255, 0.8);
+                        ;
+                        -webkit-box-shadow: none;
+                        transition: background-color 5000s ease-in-out 0s;
+                    }
+                }
+
+                .warning {
+                    font-family: Karla;
+                    font-size: 15px;
+                    font-weight: 400;
+                    color: #EC7B7B;
+                    margin-bottom: 16px;
+                    position: absolute;
+                }
+            }
+
+            .privacy-policy {
+
+                .privacy-policy-acception {
+                    @include dFlex(flex-start, center);
+                    margin-top: 42px;
+                    margin-bottom: 8px;
+
+                    div {
+                        @include size(32px, 32px);
+                        cursor: pointer;
+                    }
+
+                    .cb-unchecked {
+                        background-image: url('./../../assets/icons/checkbox_unchecked_default.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .cb-unchecked-hover {
+                        background-image: url('./../../assets/icons/checkbox_unchecked_hover.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .cb-checked {
+                        background-image: url('./../../assets/icons/checkbox_checked_default.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    .cb-checked-hover {
+                        background-image: url('./../../assets/icons/checkbox_checked_hover.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+
+                    p {
+                        font-family: Karla;
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: $fontWhite;
+                        margin-left: 8px;
+                    }
+
+                    a {
+                        font-family: Fira Code;
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: $primary;
+
+                        &:hover {
+                            color: $fontWhite;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+            }
+
+            .btn-position {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .this-btn {
+                @include dFlex();
+                border: 1px solid $fontWhite;
+                border-radius: 100px;
+                font-family: Karla;
+                font-size: 1.125rem;
+                color: $fontWhite;
+                overflow: hidden;
+                cursor: pointer;
+                gap: 8px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .contact-section {
+        padding: 72px 16px 72px 16px;
+
+        .container {
+            flex-direction: column;
+
+            .contact-text-container {
+                width: 100%;
+                padding-left: 32px;
+                margin-bottom: 64px;
+                padding-right: 32px;
+                box-sizing: border-box;
+            }
+
+            #input-form {
+                box-sizing: border-box;
+                width: 100%;
+            }
+        }
+    }
+}

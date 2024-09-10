@@ -1,0 +1,116 @@
+@import './../../styles.scss';
+
+.about-section {
+    @include dFlex(space-between, flex-start);
+    box-sizing: border-box;
+    padding: 144px 112px 72px 112px;
+}
+
+.image-container {
+    position: relative;
+    width: 40vw;
+    height: 40vw;
+
+    .background-img {
+        width: 100%;
+        height: 100%;
+        max-width: 40vw;
+        border-radius: 30px;
+        transform: translate(-8%, 8%);
+    }
+
+    .portrait-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+}
+
+.text-container {
+    width: 40vw;
+    margin-top: 96px;
+
+    h5,
+    h2 {
+        font-family: Fira Code;
+        color: $primary;
+    }
+
+    h2 {
+        margin-bottom: 2.5rem;
+    }
+
+    p {
+        font-family: Karla;
+        margin-bottom: 2rem;
+    }
+}
+
+.content-container {
+    margin-top: 1.25rem;
+    @include dFlex(space-between, flex-start);
+    flex-direction: column;
+    border: 1px solid $primary;
+    border-radius: 30px;
+    background-color: rgba(61, 207, 182, 0.1);
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.bullet-container {
+    position: relative;
+    @include dFlex(space-between, flex-start);
+    flex-direction: column;
+    gap: 16px;
+
+    .bullet-point {
+        @include dFlex(space-between, flex-start);
+        gap: 24px;
+
+        .icon {
+            @include size(32px, 32px)
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            text-align: unset;
+
+            &:hover {
+                color: $fontWhite;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-section {
+        @include dFlex(space-between, center);
+        flex-direction: column;
+        padding: 144px 16px 72px 16px;
+    }
+    
+    .image-container {
+        width: 90%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-width: 500px;
+
+        .background-img {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            border-radius: 30px;
+            transform: translate(-8%, 8%);
+        }
+    }
+    
+    .text-container {
+        width: 90%;
+        max-width: 500px;
+    }
+}

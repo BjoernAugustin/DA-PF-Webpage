@@ -1,0 +1,177 @@
+@import './../styles.scss';
+
+
+.logo {
+    position: relative;
+    margin-left: 8px;
+    margin-right: 56px;
+    cursor: pointer;
+
+    .background {
+        display: flex;
+        position: relative;
+
+        .right {
+            background-color: transparent;
+            @include size(4rem, 3rem);
+            border-radius: 0px 8px 8px 0;
+            transform: skew(-20deg);
+            position: absolute;
+            top: 0;
+            left: 3rem;
+            border: 0.125rem solid $primary;
+        }
+
+        .left {
+            background-color: $primary;
+            @include size(4rem, 3rem);
+            border-radius: 8px 0 0 0;
+            transform: skew(-20deg);
+            border: 0.125rem solid $primary;
+        }
+    }
+
+    .firstname {
+        position: absolute;
+        top: 0rem;
+        left: -0.5rem;
+        font-family: Karla;
+        font-size: 1.5rem; 
+    }
+
+    .lastname {
+        position: absolute;
+        top: 1.5rem;
+        left: 1rem;
+        font-family: Karla;
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        .background .right {
+          animation: logo-trans-to-full 1s ease-in-out forwards;
+        }
+    
+        .background .left {
+          animation: logo-full-to-trans 1s ease-in-out forwards;
+        }
+    
+        .firstname {
+          animation: fn-left-to-right 1s ease-in-out forwards;
+        }
+    
+        .lastname {
+          animation: ln-right-to-left 1s ease-in-out forwards;
+        }
+      }
+    
+      &:not(:hover) {
+        .background .right {
+            animation: logo-trans-to-full-reverse 1s ease-in-out forwards;          
+        }
+    
+        .background .left {
+          animation: logo-full-to-trans-reverse 1s ease-in-out forwards;
+        }
+    
+        .firstname {
+          animation: fn-right-to-left 1s ease-in-out forwards;
+        }
+    
+        .lastname {
+          animation: ln-left-to-right 1s ease-in-out forwards;
+        }
+      }
+    
+}
+
+
+@keyframes logo-trans-to-full {
+    0% {
+        background-color: transparent;
+        transform: skew(-20deg);
+        border-radius: 0px 8px 8px 0;
+    }
+
+    100% {
+        background-color: $primary;
+        transform: skew(+20deg);
+        border-radius: 0px 8px 0 0;
+    }
+}
+
+@keyframes logo-full-to-trans {
+    0% {
+        background-color: $primary;
+        transform: skew(-20deg);
+        border-radius: 8px 0 0 0;
+    }
+
+    100% {
+        background-color: transparent;
+        transform: skew(+20deg);
+        border-radius: 8px 0 0 8px;
+    }
+}
+
+@keyframes fn-left-to-right {
+    0% {
+        left: -0.5rem;
+    }
+    100% {
+        left: 3.5rem;
+    }
+}
+
+@keyframes ln-right-to-left {
+    0% {
+        left: 1rem;
+    }
+    100% {
+        left: -1rem;
+    }
+}
+
+@keyframes logo-trans-to-full-reverse {
+    0% {
+        background-color: $primary;
+        transform: skew(+20deg);
+        border-radius: 0px 8px 0 0;
+    }
+    100% {
+        background-color: transparent;
+        transform: skew(-20deg);
+        border-radius: 0px 8px 8px 0;
+    }
+  }
+  
+  @keyframes logo-full-to-trans-reverse {
+    0% {
+      background-color: transparent;
+      transform: skew(20deg);
+      border-radius: 8px 0 0 8px;
+    }
+    100% {
+      background-color: $primary;
+      transform: skew(-20deg);
+      border-radius: 8px 0 0 0;
+    }
+  }
+  
+  @keyframes fn-right-to-left {
+    0% {
+      left: 3.5rem;
+    }
+    100% {
+      left: -0.5rem;
+    }
+  }
+  
+  @keyframes ln-left-to-right {
+    0% {
+      left: -1rem;
+    }
+    100% {
+      left: 1rem;
+    }
+  }

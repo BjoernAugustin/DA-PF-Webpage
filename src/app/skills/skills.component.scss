@@ -1,0 +1,182 @@
+@import './../../styles.scss';
+
+.skills-section {
+    background-image: url('./../../assets/images/skill_set__gradient_background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include dFlex(space-between, flex-start);
+    box-sizing: border-box;
+    padding: 72px 112px 72px 112px;
+
+    .text-container {
+        width: 40vw;
+
+        h5,
+        h2 {
+            font-family: Fira Code;
+            color: $primary;
+        }
+
+        h2 {
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            font-family: Karla;
+            text-align: justify;
+        }
+
+        .another-skill {
+            display: flex;
+            text-wrap: nowrap;
+
+            p {
+                font-family: Fira Code;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            .highlight {
+                color: $primary;
+            }
+        }
+    }
+
+    .content-container {
+        margin-top: 1.25rem;
+        @include dFlex(space-between, flex-start);
+        flex-direction: column;
+        border: 1px solid $primary;
+        border-radius: 30px;
+        background-color: rgba(61, 207, 182, 0.1);
+        padding: 32px;
+        box-sizing: border-box;
+    }
+
+    .logo-container {
+        width: 40vw;
+
+        .techStack-wrapper {
+            @include dFlex(flex-start, space-evenly);
+            flex-wrap: wrap;
+            margin-top: 56px;
+            gap: 40px;
+
+
+            .technologie-box {
+                @include dFlex(flex-start, center);
+                flex-direction: column;
+                font-family: Fira Code;
+                font-size: 1.125rem;
+                width: 100px;
+                height: 116px;
+                text-align: center;
+                gap: 8px;
+            }
+
+            .mindset:hover {
+                position: relative;
+
+                img {
+                    animation: scale-bottom-center 0.125s ease-in-out forwards;
+                }
+
+                p {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .bubble {
+        @include dFlex(space-evenly, center);
+        flex-direction: column;
+        @include size(188px, 129px);
+        background: $fontWhite;
+        border-radius: 16px;
+        position: absolute;
+        transform: translate(-50px, -260px);
+        padding: 8px;
+        box-sizing: border-box;
+
+        &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid $fontWhite;
+            position: absolute;
+            top: 100%;
+            left: 40px;
+        }
+
+        p {
+            font-family: Karla;
+            font-size: 1rem;
+            color: $primary;
+            text-align: center;
+        }
+
+        .logo-box {
+            @include dFlex();
+            gap: 24px;
+
+            .learning-logo {
+                @include dFlex();
+                flex-direction: column;
+                font-size: 12px;
+                text-align: center;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .skills-section {
+        @include dFlex(space-between, center);
+        flex-direction: column;
+        padding: 72px 16px 72px 16px;
+
+        .text-container {
+            width: 90%;
+            max-width: 500px;
+
+            .another-skill {
+                p {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        .logo-container {
+            width: 90%;
+            max-width: 500px;
+
+            .techStack-wrapper {
+                @include dFlex(center, space-evenly);
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .another-skill {
+        flex-direction: column;
+    }
+}
+
+
+@keyframes scale-bottom-center {
+    from {
+        transform: scale(1);
+        transform-origin: bottom center;
+    }
+
+    to {
+        transform: scale(1.05);
+        transform-origin: bottom center;
+    }
+}

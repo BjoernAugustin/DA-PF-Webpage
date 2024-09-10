@@ -1,0 +1,102 @@
+@import './../../styles.scss';
+@import './../../shared/logo.scss';
+
+.header-container {
+    box-sizing: border-box;
+    padding: 48px 96px;
+    @include dFlex(space-between, center);
+}
+
+
+
+.navbar {
+
+    @include dFlex();
+
+    a {
+        font-family: Fira Code;
+        font-weight: 400;
+        text-decoration: none;
+        color: $fontWhite;
+        margin-left: 24px;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    ul li {
+        display: inline-block;
+        position: relative;
+    }
+
+    ul li:hover:before {
+        content: "";
+        position: absolute;
+        top: 28px;
+        background: $primary;
+        @include size(8px, 8px);
+        border-radius: 100%;
+        left: calc(50% + 8px);
+    }
+}
+
+.menu {
+    @include size(48px, 48px);
+    background-image: url('./../../assets/icons/menu_default.svg');
+
+    &:hover {
+        background-image: url('./../../assets/icons/menu_hover.svg');
+        cursor: pointer;
+    }
+}
+
+.language-switch {
+    @include size(84px, 28px);
+    border: 1px solid $primary;
+    border-radius: 100px;
+    @include dFlex(space-between, center);
+    font-family: Fira Code;
+
+    &:hover {
+        animation: border-primary-white 0.5s linear forwards;
+    }
+
+    .language-active {
+        @include size(44px, 28px);
+        border-radius: 100px;
+        background-color: $primary;
+        color: $fontWhite;
+        @include dFlex();
+    }
+
+    .language-inactive {
+        @include size(44px, 28px);
+        color: $primary;
+        opacity: 50%;
+        @include dFlex();
+        cursor: pointer;
+
+        &:hover {
+            animation: op-50-100 0.5s linear forwards;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .header-container {
+        padding: 32px 32px;
+    }
+}
+
+@keyframes op-50-100 {
+
+    from {
+        opacity: 50%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+

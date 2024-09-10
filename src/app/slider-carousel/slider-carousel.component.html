@@ -1,0 +1,23 @@
+<section class="slider-section">
+    <h4>What my colleagues say about me</h4>
+
+    <div class="slider-carousel">
+        <div *ngFor="let slide of slides.content; let i = index" [ngClass]="slides.getSlideClass(i)" class="slide">
+
+            <img src="./../../assets/images/quotes.svg" alt="Quotes" class="quotes-icon">
+            <p>{{ slides.content[i].comment[translate.languageIndex] }}</p>
+
+            <div class="signature">
+                <div class="line"></div>
+            <p>{{ slides.content[i].name }} - {{ slides.content[i].jobtitle[translate.languageIndex] }}</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <img (click)="slides.previousSlide()" src="./../../assets/icons/arrow_left_default.svg" alt="Previous">
+        <div *ngFor="let slide of slides.content; let i = index" (click)="slides.activeSlideIndex = i"
+            [ngClass]="{'active-dot': slides.activeSlideIndex === i}" class="dot"></div>
+        <img (click)="slides.nextSlide()" src="./../../assets/icons/arrow_right_default.svg" alt="Next">
+    </div>
+</section>

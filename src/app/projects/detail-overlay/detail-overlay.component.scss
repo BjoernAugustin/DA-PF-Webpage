@@ -1,0 +1,196 @@
+@import './../../../styles.scss';
+
+.main-window {
+    background: linear-gradient(210deg, $gradientGreen, $gradientGreen 20%, $background 60%);
+    border: 1px solid $primary;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    grid-gap: 24px;
+    z-index: 20;
+    padding: 5%;
+    margin: 5%;
+    max-height: 90%;
+    box-sizing: border-box;
+
+    .text-container {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        height: 100%;
+        @include dFlex(space-between, flex-start);
+        flex-direction: column;
+
+        .project-title {
+            @include dFlex(center, flex-start);
+            flex-direction: column;
+            margin-bottom: 2.5rem;
+
+            h1 {
+                color: $primary;
+                font-family: Karla;
+            }
+
+            h2 {
+                color: $fontWhite;
+                letter-spacing: -3%;
+                font-family: Fira Code;
+            }
+        }
+
+        .project-description {
+
+            h5 {
+                font-family: Fira Code;
+                font-weight: 700;
+                margin-bottom: 1.25rem;
+                font-family: Fira Code;
+            }
+
+            .text-description {
+                font-size: 1.125rem;
+                font-weight: 400;
+                color: $fontWhite;
+                margin-bottom: 2rem;
+                font-family: Karla;
+            }
+
+            .tech-logos {
+                @include dFlex(space-between, center);
+                margin-bottom: 2.5rem;
+                flex-wrap: wrap;
+                gap: 8px;
+                font-family: Karla;
+
+
+                .single-logo {
+                    @include dFlex(flex-start, center);
+                    gap: 4px;
+
+                    img {
+                        height: 24px;
+                        filter: invert(58%) sepia(93%) saturate(290%) hue-rotate(120deg) brightness(101%) contrast(91%);
+                    }
+                }
+            }
+        }
+
+        .btn-container {
+            @include dFlex(space-between, center);
+            gap: 32px;
+        }
+    }
+
+    .preview-container {
+        grid-column: 2;
+        grid-row: 1;
+        @include dFlex(space-between, flex-end);
+        flex-direction: column;
+
+        .close {
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        #img-frame {
+            width: -webkit-fill-available;
+        }
+
+        .next {
+            display: flex;
+            gap: 16px;
+            cursor: pointer;
+            font-size: 18px;
+            color: $primary;
+            margin-right: 11px;
+            margin-top: 11px;
+
+
+            p {
+                cursor: pointer;
+                font-family: Karla;
+            }
+
+            &:hover {
+                color: $fontWhite;
+
+                img {
+                    animation: scale-left-center 0.5 ease-in-out forwards;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .main-window {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        display: block;
+        flex-direction: column;
+        margin: 1%; 
+        max-width: 95vw;
+    }
+
+    .resp-container {
+        @include dFlex();
+        flex-direction: column;
+        padding: 16px 8px 16px 8px;
+        box-sizing: border-box;
+        align-items: end;
+    }
+
+    #img-frame {
+        width: 100%;
+    }
+
+    .close {
+        cursor: pointer;
+        margin: 15px;
+    }
+
+    .next {
+        display: flex;
+        gap: 16px;
+        cursor: pointer;
+        font-size: 18px;
+        color: $primary;
+        margin-right: 11px;
+        margin-top: 11px;
+
+
+        p {
+            cursor: pointer;
+            font-family: Karla;
+        }
+
+        &:hover {
+            color: $fontWhite;
+
+            img {
+                animation: scale-left-center 0.5 ease-in-out forwards;
+            }
+        }
+    }
+.text-container {
+
+    .btn-container {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+}
+    
+}
+
+@keyframes scale-left-center {
+    from {
+        transform: scale(1);
+        transform-origin: left center;
+    }
+
+    to {
+        transform: scale(1.2);
+        transform-origin: left center;
+    }
+}

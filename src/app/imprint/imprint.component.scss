@@ -1,0 +1,48 @@
+@import './../../styles.scss';
+
+.impressum {
+    padding-top: 48px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+h2, h6 {
+    font-family: Fira Code;
+    color: $primary;
+}
+
+h6 {
+    margin-top: 0.5rem;
+}
+
+p {
+    font-family: Karla;
+    color: $fontWhite;
+}
+
+a {
+    font-family: Fira Code;
+    color: $primary;
+    font-size: 1rem;
+
+    &:hover {
+        color: $fontWhite;
+    }
+}
+
+strong {
+    color: $primary;
+}
+
+.email {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 1rem;
+}
+
+.button-area {
+    width: 100vw;
+    max-width: 100%;
+    height: 100px;
+    @include dFlex(center, flex-start);
+}

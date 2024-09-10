@@ -1,0 +1,122 @@
+<div class="main-window">
+    @if(responsive.width900){
+<div class="resp-container">
+    <img class="close" (mouseover)="projectOverlay.hoverClose = true" (mouseleave)="projectOverlay.hoverClose = false"
+        style="margin: 19px;" [ngStyle]="{'display': projectOverlay.hoverClose == false ? 'flex' : 'none'}"
+        src="./../../../assets/icons/close_default.svg" alt="">
+    <img class="close" (click)="projectOverlay.close()" (mouseover)="projectOverlay.hoverClose = true"
+        (mouseleave)="projectOverlay.hoverClose = false"
+        [ngStyle]="{'display': projectOverlay.hoverClose == true ? 'flex' : 'none'}" src="./../../../assets/icons/close_hover.svg"
+        alt="">
+
+        <img id="img-frame" src="./../../../assets/images/{{ data.projects[data.projectIndex].img_frame }}"
+        alt="">
+
+    <div class="text-container">
+        <div class="project-title">
+            <h1>{{ data.projects[data.projectIndex].number}}</h1>
+            <h2>{{ data.projects[data.projectIndex].name}}</h2>
+        </div>
+        <div class="project-description">
+            <h5>{{ translate.portfolio[translate.languageIndex].projectHeadline }}</h5>
+            <p class="text-description">{{
+                data.projects[data.projectIndex].about[translate.languageIndex] }}</p>
+
+
+            <div class="tech-logos">
+                @for(item of data.projects[data.projectIndex].technologies; track item.tech) {
+                <div class="single-logo">
+                    <img src="./../../../assets/icons/{{ item.icon }}" alt="">
+                    <p>{{ item.tech }}</p>
+                </div>
+                }
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <div class="btn-style">
+                <div (click)="navigation.goToUrl('https://www.github.com/BjoernAugustin/')"
+                    class="btn-style btn-padding">
+                    <p class="marquee-effect">Github</p>
+                    <img class="arrow-right-up" src="./../../../assets/icons/arrow_outward_default.svg" alt="">
+                </div>
+            </div>
+
+            <div class="btn-style">
+                <div (click)="navigation.goToUrl(data.projects[data.projectIndex].url)"
+                    class="btn-style btn-padding">
+                    <p class="marquee-effect">Live Test</p>
+                    <img class="arrow-right-up" src="./../../../assets/icons/arrow_outward_default.svg" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div (click)="projectOverlay.nextProject()" class="next">
+        <p>{{ translate.portfolio[translate.languageIndex].projectNext }}</p>
+        <img src="./../../../assets/icons/arrow_forward.svg" alt="">
+    </div>
+
+
+</div>
+
+    } @else {
+    <div class="text-container">
+        <div class="project-title">
+            <h1>{{ data.projects[data.projectIndex].number}}</h1>
+            <h2>{{ data.projects[data.projectIndex].name}}</h2>
+        </div>
+        <div class="project-description">
+            <h5>{{ translate.portfolio[translate.languageIndex].projectHeadline }}</h5>
+            <p class="text-description">{{
+                data.projects[data.projectIndex].about[translate.languageIndex] }}</p>
+
+
+            <div class="tech-logos">
+                @for(item of data.projects[data.projectIndex].technologies; track item.tech) {
+                <div class="single-logo">
+                    <img src="./../../../assets/icons/{{ item.icon }}" alt="">
+                    <p>{{ item.tech }}</p>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="btn-container">
+            <div class="btn-style">
+                <div (click)="navigation.goToUrl('https://www.github.com/BjoernAugustin/')"
+                    class="btn-style btn-padding">
+                    <p class="marquee-effect">Github</p>
+                    <img class="arrow-right-up" src="./../../../assets/icons/arrow_outward_default.svg" alt="">
+                </div>
+
+            </div>
+            <div class="btn-style">
+                <div (click)="navigation.goToUrl(data.projects[data.projectIndex].url)"
+                    class="btn-style btn-padding">
+                    <p class="marquee-effect">Live Test</p>
+                    <img class="arrow-right-up" src="./../../../assets/icons/arrow_outward_default.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-container">
+        <img class="close" (mouseover)="projectOverlay.hoverClose = true" (mouseleave)="projectOverlay.hoverClose = false"
+            style="margin: 19px;" [ngStyle]="{'display': projectOverlay.hoverClose == false ? 'flex' : 'none'}"
+            src="./../../../assets/icons/close_default.svg" alt="">
+        <img class="close" (click)="projectOverlay.close()" (mouseover)="projectOverlay.hoverClose = true"
+            (mouseleave)="projectOverlay.hoverClose = false"
+            [ngStyle]="{'display': projectOverlay.hoverClose == true ? 'flex' : 'none'}"
+            src="./../../../assets/icons/close_hover.svg" alt="">
+
+        <img id="img-frame"
+            src="./../../../assets/images/{{ data.projects[data.projectIndex].img_frame }}" alt="">
+
+        <div (click)="projectOverlay.nextProject()" class="next">
+            <p>{{ translate.portfolio[translate.languageIndex].projectNext }}</p>
+            <img src="./../../../assets/icons/arrow_forward.svg" alt="">
+        </div>
+    </div>
+    }
+</div>

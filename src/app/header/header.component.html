@@ -1,0 +1,45 @@
+<section id="home" class="header-container">
+    @if(responsive.width900) {
+    <div class="logo" (click)="navigation.goToRef('#about')">
+        <div class="background">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <div class="firstname">Björn</div>
+        <div class="lastname">Augustin</div>
+    </div>
+
+    <div cdkOverlayOrigin #trigger="cdkOverlayOrigin" [class.open]="menu.open" (click)="menu.open = !menu.open"
+        class="menu"></div>
+
+    <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="menu.open"
+        (overlayOutsideClick)="menu.open = false" [cdkConnectedOverlayHasBackdrop]="true">
+        <app-menu></app-menu>
+    </ng-template>
+    }
+    @else {
+    <div class="navbar">
+        <div (click)="translate.langSwitch()" class="language-switch">
+        <span
+            [ngClass]="{'language-active': translate.langEng == true, 'language-inactive': translate.langEng == false}">
+            EN</span>
+        <span
+            [ngClass]="{'language-active': translate.langDeu == true, 'language-inactive': translate.langDeu == false}">
+            DE</span>
+    </div>
+        <ul>
+            <li><a href="#about">{{ translate.atf[translate.languageIndex].AboutMe }}</a></li>
+            <li><a href="#skills">{{ translate.atf[translate.languageIndex].Skills }}</a></li>
+            <li><a href="#projects">{{ translate.atf[translate.languageIndex].Projects }}</a></li>
+        </ul>
+    </div>
+    <div class="logo" (click)="navigation.goToRef('#about')">
+        <div class="background">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <div class="firstname">Björn</div>
+        <div class="lastname">Augustin</div>
+    </div>
+    }
+</section>

@@ -1,0 +1,165 @@
+@import './../../styles.scss';
+
+.slider-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 72px 112px;
+    box-sizing: border-box;
+    overflow: hidden;
+  
+    h4 {
+      font-family: Fira Code;
+      color: $primary;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+  
+    .slider-carousel {
+      @include dFlex();
+      position: relative;
+      width: 100%;
+      height: 440px;
+      overflow: hidden;
+  
+      .slide {
+        width: 500px;
+        height: 280px;
+        padding: 32px;
+        border: 1px solid $primary;
+        border-radius: 16px;
+        background-color: rgba(61, 207, 182, 0.1);
+        position: absolute;
+        top: 42px;
+        @include dFlex(space-between, flex-end);
+        flex-direction: column;
+        box-sizing: border-box;
+        transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
+
+        &.active {
+          transform: translate(0, 0);
+          opacity: 1;
+          z-index: 2;
+          background-color: rgba(61, 207, 182, 0.3);
+          width: 560px;
+          height: 280px;
+
+          .quotes-icon {
+            position: absolute;
+            top: -19px;
+            left: -40px;
+            width: 72px;
+            height: 72px;
+            z-index: 3;
+          }
+        }
+
+        &.slide-previous {
+          transform: translateX(-102%);
+          opacity: 0.5;
+          z-index: 1;
+          width: 560px;
+          height: 280px;
+
+          .quotes-icon {
+            display: none;
+          }
+        }
+  
+        &.slide-next {
+          transform: translateX(102%);
+          opacity: 0.5;
+          z-index: 1;
+          width: 560px;
+          height: 280px;
+
+          .quotes-icon {
+            display: none;
+          }
+        }
+  
+        &.hidden {
+          display: none;
+        }
+      }
+
+      p {
+        font-family: Karla;
+      }
+
+      .signature {
+        @include dFlex();
+        gap: 24px;
+        width: 100%;
+        text-wrap: nowrap;
+      }
+      .line {
+        background-color: $fontWhite;
+        height: 1px;
+        width: 100%;
+    }
+    }
+  
+    .navigation {
+      @include dFlex();
+      gap: 10px;
+      margin-top: 20px;
+  
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: $fontWhite;
+        transition: background-color 0.3s;
+  
+        &.active-dot {
+          background-color: $primary;
+        }
+      }
+  
+      img {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s;
+  
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  
+@media (max-width: 900px) {
+    .slider-section {
+        padding: 72px 16px;
+      
+        .slider-carousel {
+      
+          .slide {
+            width: 100vw;
+            max-width: 560px;
+      
+            &.active {
+              width: 100%;
+              max-width: 560px;
+            }
+      
+            &.slide-previous {
+              opacity: 0;
+            }
+      
+            &.slide-next {
+              opacity: 0;
+            }
+
+            .signature {
+                justify-content: center;
+                flex-direction: column;
+                text-wrap: wrap;
+                margin-top: 12px;
+                gap: 8px;
+              }
+        }}}
+}
